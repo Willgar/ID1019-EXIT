@@ -1,0 +1,87 @@
+<div class="container">
+	<div id="content">
+		<h1>Add degree project to my annual quota</h1>
+		
+		<p>Here you can add a degree project to your annual quota.</p>
+		
+		<p>Fields with <font color="red">*</font> are required.</p>
+		
+		<form id="form" method="POST" action="/add_degree_project">
+			Number of students <font color="red">*</font><br /><input id="num_students" type="number" name="num_students"><br /><br />
+			Preliminary title / Description <font color="red">*</font><br />(max 200 characters)<br /><input id="desc" type="text" name="description">
+			<br /> <br />
+			<input id="master" type="radio" name="credits" value="master" checked> Master (30hp)
+			<input id="bachelor" type="radio" name="credits" value="bachelor"> Bachelor (15hp) <font color="red">*</font>
+			<br /><br />
+			Start date (YYYY-MM-DD) <font color="red">*</font>   <input id="start_date" type="text" name="start_date"><br />
+			Stop date (YYYY-MM-DD) <font color="red">*</font>   <input id="stop_date" type="text" name="stop_date"><br />
+			<br /><br />
+			<input id="place_kth" type="radio" name="place" value="kth"> KTH
+			<input id="place_comp" type="radio" name="place" value="company"> Company <font color="red">*</font>
+			<br /><br />
+			<button type="button" onclick="next()">Next</button>
+			<br /><br />
+		</form>
+		
+		
+		<script type="text/javascript" >
+			function next(){
+				//get all info, put as input type hidden? should work.
+				var form = document.getElementById("form");
+				var num_students = document.getElementById("num_students").value;
+				var desc = document.getElementById("desc").value;
+				var credits;
+				if(document.getElementById("master").checked){
+					credits = document.getElementById("master").value;
+				} else {
+					credits = document.getElementById("bachelor").value;
+				}
+				var start_date = document.getElementById("start_date").value;
+				var stop_date = document.getElementById("stop_date").value;
+				var place, place_bool;
+				place_bool = document.getElementById("place_comp").checked;
+				if(place_bool){
+					place = document.getElementById("place_comp").value;
+				} else {
+					place = document.getElementById("place_kth").value;				
+				}
+				
+				form.innerHTML = "";
+				form.innerHTML += "<input type=\"hidden\" name=\"place\" value=\"" + place + "\">";
+				form.innerHTML += "<input type=\"hidden\" name=\"number_of_students\" value=\"" + num_students + "\">";
+				form.innerHTML += "<input type=\"hidden\" name=\"description\" value=\"" + desc + "\">";
+				form.innerHTML += "<input type=\"hidden\" name=\"credits\" value=\"" + credits + "\">";
+				form.innerHTML += "<input type=\"hidden\" name=\"start_date\" value=\"" + start_date + "\">";
+				form.innerHTML += "<input type=\"hidden\" name=\"stop_date\" value=\"" + stop_date + "\">";
+				
+				if(place_bool){
+					form.innerHTML += "<h3>Specify company information</h3>";
+					form.innerHTML += "Company <font color=\"red\">*</font><br /><input type=\"text\" name=\"company\"<br /><br />";
+					form.innerHTML += "Address <br /><input type=\"text\" name=\"address\"><br />";
+					form.innerHTML += "Telephone number <br /><input type=\"text\" name=\"telephone\"><br />";
+					form.innerHTML += "Tutor <br /><input type=\"text\" name=\"tutor\"><br />";
+					form.innerHTML += "<br />";
+				}
+				
+				var i;
+				for(i = 0; i < num_students && i < 10; i++){
+					//add one student thingy
+					form.innerHTML += "<h3>Add student #" + (i+1) + "</h3>";
+					form.innerHTML += "<br />";
+					form.innerHTML += "Personal number <br />(YYMMDDXXXX) <font color=\"red\">*</font><br /><input type=\"text\" name=\"personal_number_" + i + "\"><br />";
+					form.innerHTML += "First name  <font color = \"red\">*</font><br /><input type=text name=\"first_name_" + i + "\"> <br />";
+					form.innerHTML += "Last name  <font color = \"red\">*</font><br /><input type=text name=\"last_name_" + i + "\"> <br />";
+					form.innerHTML += "Program <br /><input type=text name=\"program_" + i + "\"> <br />";
+					form.innerHTML += "KTH mail  <br /><input type=text name=\"kth_mail_" + i + "\"> <br />";
+					form.innerHTML += "Alternative mail  <br /><input type=text name=\"alternative_mail_" + i + "\"> <br />";
+					form.innerHTML += "<br />";
+				}
+				
+				form.innerHTML += "<br />"
+				form.innerHTML += "<button type=\"submit\">Insert</button>";
+			}
+		</script>
+
+
+	</div><!-- content -->
+</div>

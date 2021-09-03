@@ -1,0 +1,49 @@
+<div class="container">
+	<div id="content">
+
+		<h1>Add budget year</h1>
+
+		<p>Here you can add a budget year, specify how many tutoring hours an examiner should use for tutoring degree projects 
+			and specify factors that the hours are going to be multiplied with if the number of students exceeds one.</p>
+
+		<p>Fields with <font color="red">*</font> are required.</p>
+		<br><br>
+
+		<table width="200" border="0" cellspacing="0" cellpadding="0">
+			<form method="POST" action="/add_budget_year">
+				Budget year <font color="red">*</font><br /><input type="text" name="budget_year"><br />
+				Bachelor hours (1 student) <font color="red">*</font><br /><input type="text" name="bachelor_hours"><br />
+				Master hours (1 student) <font color="red">*</font><br /><input type="text" name="master_hours"><br />
+				<br />
+				Use dots instead of commas when specifying factors.
+				<br /><br />
+				<tr>	
+					<td width="10%">
+						<b>Number of students</b>
+					</td>
+					<td width="10%">
+						<b>Factor <font color="red">*</font></b>		
+					</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+	
+				<tr><td>2</td> <td><input type="text" name="fact_2"></td></tr>
+				<tr><td>3</td> <td><input type="text" name="fact_3"></td></tr>
+				<tr><td>4</td> <td><input type="text" name="fact_4"></td></tr>
+				<tr><td>5</td> <td><input type="text" name="fact_5"></td></tr>
+				<tr><td>6</td> <td><input type="text" name="fact_6"></td></tr>
+				<tr><td>7</td> <td><input type="text" name="fact_7"></td></tr>
+				<tr><td>8</td> <td><input type="text" name="fact_8"></td></tr>
+				<tr><td>9</td> <td><input type="text" name="fact_9"></td></tr>
+				<tr><td>10</td> <td><input type="text" name="fact_10"></td></tr>
+		</table>
+
+		<button>Submit</button>
+
+		</form>
+
+
+	</div><!-- content -->
+</div>

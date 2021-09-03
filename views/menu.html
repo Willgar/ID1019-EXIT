@@ -1,0 +1,25 @@
+<div class="navbar">
+  <a href="/">Home</a>
+  <a href="/help">Help</a>
+  <a href="/directors">Directors</a>
+  <a href="/budget_years">Budget year</a>
+  <a href="/examiners">Examiners</a>
+  <a href="/specify_tutoring_hours">Specify tutoring hours</a>
+  <a href="/degree_projects">Degree projects</a>
+  <a href="/profile">Profile</a>
+  <a href="/available_examiners">Available examiners</a>
+  <div class="dropdown">
+    <button class="dropbtn">Add Stuff</button>
+    <div class="dropdown-content">
+      <a href="/add_director">Add director</a>
+      <a href="/add_budget_year">Add budget year</a>
+      <a href="/add_examiner">Add Examiner</a>
+      <a href="/add_degree_project">Add degree project</a>
+    </div>
+  </div>
+</div>
+<!-- marks the button corresponding to the URL to highlight it-->
+<script>
+  var currentPage = document.querySelectorAll("a[href='/"+ window.location.href.split("/")[3]+"']")[0]
+  currentPage.classList.add("currentPage");
+</script>

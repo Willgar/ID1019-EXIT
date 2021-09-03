@@ -1,0 +1,25 @@
+{
+  "name": "exitjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ÖB+CS",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "certbot": "^5.0.3",
+    "express": "^4.17.1",
+    "gyp": "^0.5.0",
+    "kth-node-configuration": "^1.6.4",
+    "kth-node-ldap": "^2.3.8",
+    "kth-node-log": "^3.0.2",
+    "kth-node-passport-cas": "^3.1.7",
+    "kth-node-server": "^3.1.1",
+    "passport": "^0.4.0",
+    "pg": "^8.7.1",
+    "url": "^0.11.0"
+  }
+}
