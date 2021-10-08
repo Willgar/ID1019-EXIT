@@ -241,6 +241,10 @@ var header = fs.readFileSync('views/header.html');
 var footer = fs.readFileSync('views/footer.html');
 var success = fs.readFileSync('views/success.html');
 var menu = fs.readFileSync('views/menu.html');
+var add_budget_year_html = fs.readFileSync('views/add_budget_year.html');
+var add_degree_project_html = fs.readFileSync('views/add_degree_project.html');
+var add_add_director_html = fs.readFileSync('views/add_director.html');
+var add_examiner_html = fs.readFileSync('views/add_examiner.html');
 
 const add_director = (req, res, mail, first_name, last_name) => {
 	var post = 'INSERT INTO DIRECTOR_OF_STUDIES VALUES (\'' + mail + '\', \'' + first_name + '\', \'' + last_name + '\')';
@@ -251,7 +255,7 @@ const add_director = (req, res, mail, first_name, last_name) => {
 		}
 		console.log(result);
 
-		res.send(header + menu + success + footer);
+		res.send(header + menu + add_add_director_html + success + footer);
 	});
 }
 
@@ -268,7 +272,7 @@ const add_budget_year = (req, res, mail, budget_year) => {
 		}
 		console.log(result);
 
-		res.send(header + menu + success + footer);
+		res.send(header + menu + add_budget_year_html + success + footer);
 	});
 }
 
@@ -281,7 +285,7 @@ const add_examiner = (req, res, director_mail, mail, first_name, last_name) => {
 		}
 		console.log(result);
 
-		res.send(header + menu + success + footer);
+		res.send(header + menu + add_examiner_html + success + footer);
 	});
 }
 
@@ -384,7 +388,7 @@ const add_degree_project = (req, res, mail, project_info) => {
 				add_company(serial, mail, project_info.company, project_info.address, project_info.telephone, project_info.tutor);
 			}
 
-			res.send(header + menu + success + footer);
+			res.send(header + menu + add_degree_project_html + success + footer);
 		});
 	});
 }
