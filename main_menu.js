@@ -1,5 +1,5 @@
 /*
-
+	Deprecated 2021-10-08
 	main_menu.js contains only one function, create_main_menu which creates the main menu of the website
 	This is done based on which page is currently being viewed.
 
